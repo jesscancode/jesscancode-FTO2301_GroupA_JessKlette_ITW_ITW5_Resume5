@@ -1,0 +1,490 @@
+/* 
+============================
+CSS RESET
+============================
+*/
+:root {
+--ff-primary: 'Satoshi', sans-serif;
+--ff-secondary: 'General Sans', sans-serif;
+
+--ff-body: var(--ff-secondary);
+--ff-heading: var(--ff-primary);
+
+--fw-regular: 300;
+--fw-semi-bold: 500;
+--fw-bold: 700;
+
+--bg-dark-mode: rgb(10, 10, 10);
+--bg-pink-mode: rgba(193, 36, 211, 0.537);
+
+--ff-light-mode: rgb(255, 255, 255);
+
+}
+
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+* {
+margin: 0;
+padding: 0;
+font-family: var(--ff-primary);
+}
+
+ul[role='list'],
+ol[role='list'] {
+list-style: none;
+}
+
+body {
+  background-color: var(--bg-dark-mode);
+  color: var(--ff-light-mode);
+}
+
+/* 
+============================
+LAYOUT
+============================
+*/
+.container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.container_column {
+  width: 80%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+}
+
+header {
+  width: 100%;
+  height: 100px;
+  background-color: transparent;
+  padding-top: 1em;
+}
+
+/* 
+============================
+RESPONSIVE NAVIGATION | MOBILE FIRST
+============================
+*/
+
+.logo {
+  font-family: var(--ff-primary);
+  font-size: 2rem;
+  font-weight: 700;
+  /* border: 2px dotted burlywood; */
+  display: inline-block;
+}
+
+.feature-landing {
+  margin-bottom: 5em;
+}
+
+.feature-landing h1 {
+  display: none;
+}
+
+.feature-landing span {
+    font-size: 1em;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.feature-landing a {
+    text-decoration: none;
+}
+
+a:link {
+  text-decoration:none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover, 
+a:focus {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.hamburger {
+  color: rgb(249, 99, 124);
+  /* border: 2px solid red;\index.html
+  display: inline-block; */
+}
+
+.nav-bar ul {
+  display: flex;
+  list-style-type: none;
+}
+
+.nav-bar ul li a {
+  color: white;
+  display: block;
+  font-size: 1.25rem;
+  padding: 0.625em 1.25em; /* padding: 10px 20px; */
+  text-decoration: none;
+  transition: 0.2s;
+  margin: 0 0.3em; /* margin: 0 5px; */
+  border-radius: 30px;
+}
+
+.nav-bar ul li a:hover,
+.nav-bar ul li a:focus {
+  color: white;
+  background-color: black;
+}
+
+.nav-bar ul li a.active,
+.nav-bar ul li a.active {
+  color: black;
+  background-color: white;
+}
+
+nav.nav-bar.active {
+  background-color: orangered;
+  color: green;
+  height: 100%;
+}
+
+@media only screen and (max-width:768px) {
+
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger .line {
+    width: 30px;
+    height: 4px;
+    background: orangered;
+    margin: 0.35em 0;
+  }
+  
+  .nav-bar {
+    height: 0; /* consider making it height viewport height */
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background-color: orangered;
+    transition: 0.3s;
+    overflow: hidden;
+  }
+
+  .nav-bar.active {
+    height: 30vh; 
+    z-index: 99;
+    background-color: palegreen;
+    /* Why can't I set this to 100vh without the scroll function in the browser coming up? */
+  }
+
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 10vh auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+  }
+
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+
+  .nav-bar ul li a {
+    margin-bottom: 0.75em;
+    color: black;
+    background-color: white;
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
+}
+
+/* 
+============================
+	GRADIENT HOVER JESSCANCODE
+============================
+ */
+
+.jesscancode-logo {
+  cursor: crosshair;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(255, 255, 255, 1), 
+      rgba(255, 255, 255, 1)
+    ),
+    linear-gradient(
+      to right,
+      rgba(255, 0, 0, 1),
+      rgba(255, 0, 180, 1),
+      rgba(0, 100, 200, 1)
+    );
+  background-size: 100% 3px, 0 4px;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 400ms;
+}
+
+.jesscancode-logo:hover {
+  background-size: 0 3px, 100% 3px;
+}
+
+/* 
+============================
+	SOUND HOVER JESSCANCODE
+============================
+ */
+
+ #typing {
+  position: absolute;
+  display: block;
+  height: 1px;
+  padding: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/* 
+============================
+SHAKE AND BAKE JESSCANCODE
+============================
+*/
+
+.jesscancode-logo:hover {
+/* Start the shake animation and make the animation last for 0.5 seconds */
+animation: shake 0.5s;
+
+/* When the animation is finished, start again */
+animation-iteration-count: infinite;
+
+}
+
+@keyframes shake {
+0% { transform: translate(1px, 1px) rotate(0deg); }
+10% { transform: translate(-1px, -2px) rotate(-1deg); }
+15% { transform: translate(-15px, -2px) rotate(-1deg); }
+20% { transform: translate(-3px, 0px) rotate(1deg); }
+30% { transform: translate(3px, 8px) rotate(0deg); }
+40% { transform: translate(1px, -1px) rotate(1deg); }
+50% { transform: translate(-1px, 2px) rotate(-1deg); }
+60% { transform: translate(-3px, 8px) rotate(0deg); }
+70% { transform: translate(3px, 1px) rotate(-1deg); }
+80% { transform: translate(-1px, -1px) rotate(1deg); }
+90% { transform: translate(1px, 20px) rotate(0deg); }
+100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* 
+============================
+HERO TEXT HOVER SECTION
+============================
+*/
+span {
+  cursor: crosshair;
+}
+
+#hero {
+  /* margin-left: calc(100vw - 900px); */
+  font-size: 3em;
+  
+}
+
+#hero > h1 {
+  font-size: 2.5em;
+}
+
+@media only screen and (min-width: 767px){
+    .feature-landing h1 {
+        display: block;
+        font-weight: 500;
+        padding-bottom: 0.1em;
+    }
+
+    .logo {
+        display: none;
+    }
+}
+
+/* 
+============================
+HERO TEXT HOVER SECTION
+============================
+*/
+
+hero {
+  margin: auto o;
+  font-size: 2em;
+}
+
+hero > a {
+  color: rgba(255, 255, 255, 0.40);
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+hero > a:hover {
+  color: white;
+}
+
+hero > a > span {
+  display: inline;
+  position: relative;
+  z-index: 2;
+}
+
+hero > a:hover > span {  
+    text-shadow: 1px 1px 1px black;
+    /* text-transform: uppercase; */
+}
+
+hero > a > img {
+  position: absolute;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+  transition: transform 250ms, opacity 250ms;
+  pointer-events: none;
+  width: min(40vw, 500px);
+}
+
+hero > a:hover > img {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* 
+============================
+MAIN DIVIDER LAYOUT
+============================
+*/
+#WORK {
+  margin-right: 2em;
+}
+
+#WORK > p {
+  text-align: left;
+  align-content: left;
+  margin-top: 2em;
+}
+
+.main_headings {
+  margin-bottom: 0em;
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.main_headings span {
+  font-size: 0.5em;
+}
+
+.main_headings_underline {
+  width: 9em;
+  height: 0.5em;
+  margin-top: 0.8em;
+  margin-left: auto; 
+  margin-right: 0;
+  background-color: whitesmoke;
+}
+
+.main_headings_underline_left {
+  width: 9em;
+  height: 0.5em;
+  margin-top: 0.8em;
+  margin-left: 0; 
+  margin-right: auto;
+  background-color: whitesmoke;
+}
+
+.main_headings_left {
+  text-align: left;
+}
+
+.main_headings_right {
+  text-align: right;
+}
+
+.tools {
+  margin-top: 2em;
+}
+
+/* 
+============================
+RESUME LAYOUT
+============================
+*/
+
+@media only screen and (min-width: 767px){
+  .resume {
+    display: grid;
+    column-gap: 1em;
+    row-gap: 1em;
+    grid-template-columns: 1fr 2fr;
+    margin: 4em 4em;
+  }
+
+}
+
+.sidebar {
+  border: 2px solid green;
+  background: hsla(0, 0%, 12%, 1);
+  padding: 2em 2em;
+}
+
+.resume_image {
+  border-radius: 50%;
+  max-width: 15em;
+}
+
+.icons {
+  filter: invert(100%);
+  max-width: 30px;
+  margin-right: 10px;
+}
+
+/* 
+============================
+RESUME_CONTENT SECTION
+============================
+*/
+
+.resume_content {
+  border: 2px solid red;
+  padding: 4em 4em;
+}
+
+.resume_header {
+  border: 2px solid palegoldenrod;
+  margin: 0;
+  display: inline;
+}
+
+.resume_header_logo {
+  max-width: 200px;
+  border: 2px solid purple;
+  /* text-align: right; */
+}
+
+.job_description {
+  margin-left: 2em;
+}
+
